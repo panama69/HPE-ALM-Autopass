@@ -11,7 +11,9 @@ docker rmi hpeautopass
 
 echo "Building the hpeautopass image"
 if [ $1 = "-b" ]; then
+        curl -O https://raw.githubusercontent.com/panama69/HPE-ALM-Autopass/master/Dockerfile
 	docker build -t hpeautopass .
+	rm -f ./Dockerfile
 else
 	echo "Skipping 'docker build' as no -b flag provided"
 fi
