@@ -9,8 +9,8 @@ LABEL license=GPLv2
 
 #use the COPY option if the URL is down or you don't wish to pull from external
 #As of 11/Jul/2016, the URL points to AutoPass 9.1
-#ADD http://flynnshome.com/downloads/setupAutoPass.bin /tmp/setupAutoPass.bin
-COPY ./setupAutoPass.bin /tmp/setupAutoPass.bin
+ADD http://flynnshome.com/downloads/setupAutoPass.bin /tmp/setupAutoPass.bin
+#COPY ./setupAutoPass.bin /tmp/setupAutoPass.bin
 
 RUN chmod 777 /tmp/setupAutoPass.bin;
 RUN /tmp/setupAutoPass.bin -i silent;
