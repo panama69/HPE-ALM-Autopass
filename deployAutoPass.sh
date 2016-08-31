@@ -9,15 +9,6 @@ docker rm autopass
 echo "Removing hpeautopass image (if it exists)"
 docker rmi hpeautopass
 
-echo "Building the hpeautopass image"
-if [ $1 = "-b" ]; then
-        curl -O https://raw.githubusercontent.com/panama69/HPE-ALM-Autopass/master/Dockerfile
-	docker build -t hpeautopass .
-	rm -f ./Dockerfile
-else
-	echo "Skipping 'docker build' as no -b flag provided"
-fi
-
 echo "Create the demo-net network"
 if [ $(docker network ls|grep -c -w "demo-net") -ge 1 ]; then
     echo "demo-net already exists"
